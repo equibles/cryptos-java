@@ -1,4 +1,4 @@
-# Equibles Cryptos API for java
+# Equibles Cryptos API for Java
 
 ## Requirements
 

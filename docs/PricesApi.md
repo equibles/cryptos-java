@@ -4,14 +4,14 @@ All URIs are relative to *https://api.equibles.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**endOfDay**](PricesApi.md#endOfDay) | **GET** /stocks/prices/endofday | Lists the end of day prices for a given stock.
-[**intraday**](PricesApi.md#intraday) | **GET** /stocks/prices/intraday | Lists the intraday prices for a given stock with one minute precision.
+[**endOfDay**](PricesApi.md#endOfDay) | **GET** /cryptos/prices/endofday | Lists the end of day prices for a given cryptocurrency.
+[**intraday**](PricesApi.md#intraday) | **GET** /cryptos/prices/intraday | Lists the intraday prices for a given cryptocurrency with one minute precision.
 
 <a name="endOfDay"></a>
 # **endOfDay**
-> PricesResponse endOfDay(fullTicker, startTime, endTime, page, pageSize)
+> PricesResponse endOfDay(ticker, startTime, endTime, page, pageSize)
 
-Lists the end of day prices for a given stock.
+Lists the end of day prices for a given cryptocurrency.
 
 ### Example
 ```java
@@ -31,13 +31,13 @@ Query String.setApiKey("YOUR API KEY");
 //Query String.setApiKeyPrefix("Token");
 
 PricesApi apiInstance = new PricesApi();
-String fullTicker = "fullTicker_example"; // String | The fully qualified ticker of the stock. Example: AAPL.XNAS
+String ticker = "ticker_example"; // String | The ticker of the cryptocurrency. Example: BTC (for Bitcoin)
 OffsetDateTime startTime = new OffsetDateTime(); // OffsetDateTime | The start time of the window. UTC time formatted according to ISO 8601 (i.e: 2022-02-01T13:45:17)
 OffsetDateTime endTime = new OffsetDateTime(); // OffsetDateTime | The end time of the window. UTC time formatted according to ISO 8601 (i.e: 2022-02-01T13:45:17)
 Integer page = 1; // Integer | The number of the page to request.
 Integer pageSize = 1000; // Integer | The number of elements in each page. Max value: 50000.
 try {
-    PricesResponse result = apiInstance.endOfDay(fullTicker, startTime, endTime, page, pageSize);
+    PricesResponse result = apiInstance.endOfDay(ticker, startTime, endTime, page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PricesApi#endOfDay");
@@ -49,7 +49,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fullTicker** | **String**| The fully qualified ticker of the stock. Example: AAPL.XNAS |
+ **ticker** | **String**| The ticker of the cryptocurrency. Example: BTC (for Bitcoin) |
  **startTime** | **OffsetDateTime**| The start time of the window. UTC time formatted according to ISO 8601 (i.e: 2022-02-01T13:45:17) | [optional]
  **endTime** | **OffsetDateTime**| The end time of the window. UTC time formatted according to ISO 8601 (i.e: 2022-02-01T13:45:17) | [optional]
  **page** | **Integer**| The number of the page to request. | [optional] [default to 1]
@@ -70,9 +70,9 @@ Name | Type | Description  | Notes
 
 <a name="intraday"></a>
 # **intraday**
-> PricesResponse intraday(fullTicker, startTime, endTime, page, pageSize)
+> PricesResponse intraday(ticker, startTime, endTime, page, pageSize)
 
-Lists the intraday prices for a given stock with one minute precision.
+Lists the intraday prices for a given cryptocurrency with one minute precision.
 
 ### Example
 ```java
@@ -92,13 +92,13 @@ Query String.setApiKey("YOUR API KEY");
 //Query String.setApiKeyPrefix("Token");
 
 PricesApi apiInstance = new PricesApi();
-String fullTicker = "fullTicker_example"; // String | The fully qualified ticker of the stock. Example: AAPL.XNAS
+String ticker = "ticker_example"; // String | The ticker of the cryptocurrency. Example: BTC (for Bitcoin)
 OffsetDateTime startTime = new OffsetDateTime(); // OffsetDateTime | The start time of the window. UTC time formatted according to ISO 8601 (i.e: 2022-02-01T13:45:17)
 OffsetDateTime endTime = new OffsetDateTime(); // OffsetDateTime | The end time of the window. UTC time formatted according to ISO 8601 (i.e: 2022-02-01T13:45:17)
 Integer page = 1; // Integer | The number of the page to request.
 Integer pageSize = 1000; // Integer | The number of elements in each page. Max value: 50000.
 try {
-    PricesResponse result = apiInstance.intraday(fullTicker, startTime, endTime, page, pageSize);
+    PricesResponse result = apiInstance.intraday(ticker, startTime, endTime, page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PricesApi#intraday");
@@ -110,7 +110,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fullTicker** | **String**| The fully qualified ticker of the stock. Example: AAPL.XNAS |
+ **ticker** | **String**| The ticker of the cryptocurrency. Example: BTC (for Bitcoin) |
  **startTime** | **OffsetDateTime**| The start time of the window. UTC time formatted according to ISO 8601 (i.e: 2022-02-01T13:45:17) | [optional]
  **endTime** | **OffsetDateTime**| The end time of the window. UTC time formatted according to ISO 8601 (i.e: 2022-02-01T13:45:17) | [optional]
  **page** | **Integer**| The number of the page to request. | [optional] [default to 1]
